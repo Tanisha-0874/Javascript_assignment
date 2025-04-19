@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <script>
+      function Book(title, author, ISBN) {
+        this.title = title;
+        this.author = author;
+        this.ISBN = ISBN;
+        this.isBorrowed = false;
+      }
+
+      Book.prototype.borrow = function () {
+        this.isBorrowed = true;
+      };
+
+      Book.prototype.returnBook = function () {
+        this.isBorrowed = false;
+      };
+
+      // Library object
+      const Library = {
+        books: [],
+
+        addBook: function (book) {
+          this.books.push(book);
+        },
+
+        findBookByISBN: function (isbn) {
+          return this.books.find(book => book.ISBN === isbn);
+        },
+
+        listAvailableBooks: function () {
+          return this.books.filter(book => !book.isBorrowed);
+        },
+
+        listBorrowedBooks: function () {
+          return this.books.filter(book => book.isBorrowed);
+        }
+      };
+
+      // Example usage:
+      const book1 = new Book("1984", "George Orwell", "12345");
+      const book2 = new Book("The Hobbit", "J.R.R. Tolkien", "67890");
+      Library.addBook(book1);
+      Library.addBook(book2);
+      book1.borrow();
+      console.log("Available Books:", Library.listAvailableBooks());
+      console.log("Borrowed Books:", Library.listBorrowedBooks());
+
+  </script>
+  
+</body>
+</html>

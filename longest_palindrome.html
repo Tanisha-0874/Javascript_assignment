@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Strings - Longest Palindrome</title>
+</head>
+<body>
+  <script>
+    // Question 2: Strings - Find Longest Palindrome
+    function findLongestPalindrome(str) {
+      let max = '';
+      for (let i = 0; i < str.length; i++) {
+        for (let j = i + 1; j <= str.length; j++) {
+          let substr = str.slice(i, j);
+          if (substr === substr.split('').reverse().join('') && substr.length > max.length) {
+            max = substr;
+          }
+        }
+      }
+      return max;
+    }
+
+    // Example:
+    console.log(findLongestPalindrome("babad")); // "bab" or "aba"
+    console.log(findLongestPalindrome("cbbd"));  // "bb"
+  </script>
+</body>
+</html>

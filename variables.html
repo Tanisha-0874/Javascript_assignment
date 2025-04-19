@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Variables</title>
+</head>
+<body>
+  <script>
+    // Question 4: Variables (Scope)
+
+// Global scope
+      var globalVar = 'I am global';
+
+      function localScope() {
+        // Function (local) scope
+        var localVar = 'I am local';
+        console.log(globalVar); // accessible
+        console.log(localVar);  // accessible
+      }
+
+      localScope();
+      // console.log(localVar); // Error: not defined
+
+      function blockScopeExample() {
+        if (true) {
+          let blockLet = 'I am block-scoped';
+          const blockConst = 'So am I';
+          console.log(blockLet);
+          console.log(blockConst);
+        }
+        // console.log(blockLet); // Error
+        // console.log(blockConst); // Error
+      }
+
+      // Variable shadowing let x = 10;
+      function shadowingExample() {
+        let x = 5; // shadows outer x
+        console.log('Inner x:', x);
+      }
+      shadowingExample();
+      console.log('Outer x:', x);
+
+  </script>
+  
+</body>
+</html>

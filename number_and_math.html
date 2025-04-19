@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number and Math</title>
+</head>
+<body>
+  <script>
+    function formatCurrency(amount, currencyCode) {
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: currencyCode,
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+  return formatter.format(amount);
+}
+
+// Example:
+console.log(formatCurrency(123456.789, 'USD')); // $123,456.79
+console.log(formatCurrency(123456.789, 'EUR')); // €123,456.79
+console.log(formatCurrency(123456.789, 'INR')); // ₹123,456.79
+  </script>
+  
+</body>
+</html>

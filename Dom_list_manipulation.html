@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM List Manipulation</title>
+</head>
+<body>
+  <ul>
+    <li class="item">Item 1</li>
+    <li class="item">Item 2</li>
+    <li class="item">Item 3</li>
+    <li class="item">Item 4</li>
+  </ul>
+
+  <script>
+    // Question 3: DOM and console.log
+    const items = document.querySelectorAll('li');
+
+    // Log text content of each list item
+    items.forEach((item, index) => {
+      console.log(item.textContent);
+
+      // Add 'highlight' class to every second item (1-based index)
+      if ((index + 1) % 2 === 0) {
+        item.classList.add('highlight');
+      }
+    });
+
+    // Log total number of list items
+    console.log("Total list items:", items.length);
+  </script>
+</body>
+</html>

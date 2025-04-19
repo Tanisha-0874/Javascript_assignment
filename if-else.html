@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>If-else</title>
+</head>
+<body>
+  <script>
+        function evaluateConditions(obj) {
+      if (obj.age > 18 && obj.hasLicense) {
+        return "Eligible to drive";
+      }
+      if (obj.temperature > 30 || obj.humidity > 70) {
+        return "Warning: High discomfort level";
+      }
+      if ((obj.role === "admin" || obj.role === "editor") && obj.isActive) {
+        return "Access granted";
+      }
+      if (!obj.isVerified) {
+        return "Account not verified";
+      }
+      if (obj.score >= 90 && obj.score <= 100) {
+        return "Grade: A";
+      }
+      if (obj.loginAttempts > 3 || !obj.isLocked) {
+        return "Check login security";
+      }
+      if (obj.balance < 0 && !obj.allowOverdraft) {
+        return "Overdraft not allowed";
+      }
+      return "No matching condition";
+    }
+
+    // Example:
+    console.log(evaluateConditions({ age: 20, hasLicense: true }));
+  </script>
+  
+</body>
+</html>
